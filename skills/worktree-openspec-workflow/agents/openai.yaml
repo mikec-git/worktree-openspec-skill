@@ -1,0 +1,7 @@
+interface:
+  display_name: "Worktree OpenSpec Workflow"
+  short_description: "Create task worktrees with OpenSpec."
+  default_prompt: "Use $worktree-openspec-workflow to set up a task worktree and OpenSpec change."
+
+policy:
+  allow_implicit_invocation: true
