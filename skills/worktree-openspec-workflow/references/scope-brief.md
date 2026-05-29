@@ -6,7 +6,7 @@ Use this brief before creating the worktree. Keep it concise, but make it concre
 
 Ask only the questions that are not already answered by the user's prompt or existing project context.
 
-Generate a 10-question Yes/No/Chat flow from the requested feature/spec, then ask those questions one at a time. If a structured interactive input tool is available, use it for the next unanswered question only. If not, present one numbered Yes/No/Chat prompt and wait for the user's answer before asking the next question or creating anything.
+Generate a 10-question Yes/No/Chat flow from the requested feature/spec, then ask those questions one at a time. In Claude, use `AskUserQuestion` for the next unanswered question when available. In Codex, use `request_user_input` for the next unanswered question when available. If no structured interactive input tool is available, present one numbered Yes/No/Chat prompt and wait for the user's answer before asking the next question or creating anything.
 
 Do not replace the discovery flow with broad open-ended questions unless the user explicitly asks for that format.
 

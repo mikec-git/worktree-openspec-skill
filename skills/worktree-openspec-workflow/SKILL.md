@@ -13,9 +13,9 @@ Create task worktrees in the project-standard shape: scoped task brief, synced b
 
 1. Discuss and capture task scope before creating anything.
    - Generate a 10-question discovery flow from the requested feature/spec, then ask those questions one at a time until the implementation scope is concrete enough to write a meaningful OpenSpec proposal.
-   - Interactive keyboard-select prompts require Plan mode in clients where `request_user_input` is Plan-only. A skill cannot switch modes itself.
-   - If a structured interactive input tool such as `request_user_input` is available, use it for one question at a time.
-   - If the user explicitly wants keyboard-select prompts and `request_user_input` is unavailable because the session is not in Plan mode, explain that the session must be switched to Plan mode and stop before creating any files, branch, worktree, or OpenSpec change.
+   - If running in Claude and `AskUserQuestion` is available, use it for the next unanswered generated question. Use single-select options with exactly `Yes`, `No`, and `Chat`.
+   - If running in Codex and `request_user_input` is available, use it for the next unanswered generated question. Interactive keyboard-select prompts require Plan mode in clients where `request_user_input` is Plan-only; a skill cannot switch modes itself.
+   - If the user explicitly wants keyboard-select prompts in Codex and `request_user_input` is unavailable because the session is not in Plan mode, explain that the session must be switched to Plan mode and stop before creating any files, branch, worktree, or OpenSpec change.
    - If no structured input tool is available, present exactly one numbered Yes/No/Chat prompt in chat, stop for the user's answer, then ask the next unanswered question on the following turn before creating any files, branch, worktree, or OpenSpec change.
    - Do not convert the discovery flow into open-ended checklist questions unless the user explicitly asks for a free-form flow.
    - Each generated discovery prompt must offer exactly three choices: `Yes`, `No`, and `Chat`.
